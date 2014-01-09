@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-0": {"src": "."}
+    },
+
+    "require": {
+        "slim/slim": "2.*",
+        "slim/views": "0.1.*",
+		"slim/strong": "dev-develop",
+		"aura/includer": "2.*@dev",
+		"propel/propel1": "~1.6",
+        "twig/twig": "1.*"
+    }
+}

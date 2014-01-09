@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/web/assets_default/ico/favicon.png">
+
+    <title>Human Resource Information System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/web/assets_default/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/web/assets_default/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/web/assets_default/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/web/assets_default/js/html5shiv.js"></script>
+      <script src="/web/assets_default/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+	
+    <div class="navbar navbar-fixed-top">
+
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">H.R.IS</a>
+        </div>
+
+        {% include 'contentheading.html' %}
+
+      </div>
+
+    </div>
+	
+
+    <div class="container theme-showcase">
+        {% block contentbody %}
+        {% endblock %}
+    </div>    
+
+    {% for js in __default_javascript %}
+        <script src="web/assets_default/js/{{js}}.js"></script>
+    {% endfor %}
+
+    <script type="text/javascript">
+    {% for key, value in __javascript_additional_vars %}
+        var {{key}} = {{value|raw}};
+    {% endfor %}
+    </script>
+
+  </body>
+</html>

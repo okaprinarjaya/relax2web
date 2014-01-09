@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{######################## START MODULE CONTENT ########################}
+{% block contentbody %}
+
+    <h1>Halo Alam Semesta!</h1>
+    
+    {% if pubs|length > 0 %}
+        <ul id="publications">
+        	{% for pub in pubs %}
+        	    <li>{{pub.name}}</li>
+        	{% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

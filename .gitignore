@@ -1,0 +1,9 @@
+composer.phar
+composer.lock
+build.properties
+runtime-conf.xml
+vendor/*
+propelconf/*
+propelsql/*
+src/Orm/*
+/nbproject
