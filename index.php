@@ -9,6 +9,7 @@ $app = new \Slim\Slim(array(
 	'view' => new \src\Common\AppTwigViewBase()
 ));
 
+$app->app_conf = getAppConfig();
 $view = $app->view();
 
 $view->parserOptions = array(
@@ -19,7 +20,8 @@ $view->parserExtensions = array(
 	new \Slim\Views\TwigExtension()
 );
 
-$view->setTemplatesDirectory('src/Template/CustomExample/');
+$view->setTemplatesDirectory($app->app_conf['templates_dir'].$app->app_conf['template'].'/');
+
 $app->add(new \src\Common\AppSlimMiddleware());
 
 /**
