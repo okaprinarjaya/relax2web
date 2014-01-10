@@ -10,19 +10,18 @@ class AppSlimMiddleware extends \Slim\Middleware
 		$app = $this->app;
 
 		$app->hook('slim.before', function () use ($app) {
-			$modulesDir = 'src/Module/';
 			$splitRoute = explode('/', $app->environment()['PATH_INFO']);
 			$moduleName = $splitRoute[1];
 
-			if (strlen($moduleName) != 0 && realpath($modulesDir.$moduleName)) {
+			if (strlen($moduleName) != 0 && realpath($app->app_conf['modules_dir'].$moduleName)) {
 				$includer = new AuraIncluder();
 
 				$includer->setDirs(array(
-					$modulesDir.$moduleName
+					$app->app_conf['modules_dir'].$moduleName
 				));
 
-				$includer->setFiles(array(
-					'routes_'.$moduleName.'.php'
+				$includer->addFiles(array(
+					'*.php'
 				));
 
 				$includer->setVars(array(
