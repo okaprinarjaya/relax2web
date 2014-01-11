@@ -3,14 +3,182 @@
 {######################## START MODULE CONTENT ########################}
 {% block contentbody %}
 
-    <h1>Halo Alam Semesta!</h1>
-    
-    {% if pubs|length > 0 %}
-        <ul id="publications">
-        	{% for pub in pubs %}
-        	    <li>{{pub.name}}</li>
-        	{% endfor %}
-        </ul>
-    {% endif %}
+    <form class="form-horizontal" action="/example_module" method="post">
+    	<fieldset>
+    		<!-- Form Name -->
+    		<legend style="background-color:#F9F9F9; padding:5px; text-align:center;">Input Data Buku</legend>
+
+    		<div class="container">
+    			<fieldset>
+    				<legend style="border-bottom:2px #DDDDDD solid;"><span style="background-color:#B3D7EE; padding:5px; color:#FFFFFF;">Bagian Input 1</span></legend>
+
+    				<div class="row" style="background-color:#FFFFFF;">
+
+    					<!-- KOLOM KIRI -->
+    					<div class="col-md-6">
+
+		    				<!-- Text input-->
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="book_title">Book Title</label>  
+		    					<div class="col-md-8">
+		    						<input id="book_title" name="book_title" class="form-control input-md" type="text">
+		    					</div>
+		    				</div>
+
+		    				<!-- Text input-->
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="isbn">ISBN</label>
+		    					<div class="col-md-8">
+		    						<input id="isbn" name="isbn" class="form-control input-md" type="text">
+		    					</div>
+		    				</div>
+
+		    				<!-- Select Basic -->
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="publisher">Publisher</label>
+		    					<div class="col-md-8">
+		    						<select id="publisher" name="publisher" class="form-control">
+		    							<option value="null">--- Pilih Publisher ---</option>
+		    							{% for pub in pubs %}
+		    							    <option value="{{pub.id}}">{{pub.name}}</option>
+		    							{% endfor %}
+		    						</select>
+		    					</div>
+		    				</div>
+
+		    				<!-- Select Basic -->
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="author">Author</label>
+		    					<div class="col-md-8">
+		    						<select id="author" name="author" class="form-control">
+		    							<option value="null">--- Pilih Author ---</option>
+		    							{% for author in authors %}
+		    							    <option value="{{author.id}}">{{author.firstName}}</option>
+		    							{% endfor %}
+		    						</select>
+		    					</div>
+		    				</div>
+
+		    			</div>
+		    			<!-- END KOLOM KIRI -->
+
+		    			<!-- KOLOM KANAN -->
+		    			<div class="col-md-6">
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="x1">Cool Label X1</label>  
+		    					<div class="col-md-8">
+		    						<input id="x1" name="x1" class="form-control input-md" type="text">
+		    					</div>
+		    				</div>
+
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="x2">Cool Label X2</label>  
+		    					<div class="col-md-8">
+		    						<input id="x2" name="x2" class="form-control input-md" type="text">
+		    					</div>
+		    				</div>
+
+		    				<div class="form-group">
+		    					<label class="col-md-4 control-label" for="x3">Cool Label X3</label>  
+		    					<div class="col-md-8">
+		    						<input id="x3" name="x3" class="form-control input-md" type="text">
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<!-- END KOLOM KANAN -->
+		    		</div>
+
+		    	</fieldset>
+		    </div>
+		    
+
+    		<div class="container">
+    			<fieldset>
+    				<legend style="border-bottom:2px #DDDDDD solid;"><span style="background-color:#B3D7EE; padding:5px; color:#FFFFFF;">Bagian Input 2</span></legend>
+
+    				<div class="row" style="background-color:#FFFFFF;">
+    					<div class="col-md-6">
+    						<div class="form-group">
+    							<label class="col-md-4 control-label" for="x4">Cool Label X4</label>  
+    							<div class="col-md-8">
+    								<input id="x4" name="x4" class="form-control input-md" type="text">
+    							</div>
+    						</div>
+
+	    					<div class="form-group">
+	    						<label class="col-md-4 control-label" for="x5">Cool Label X5</label>  
+	    						<div class="col-md-8">
+	    							<input id="x5" name="x5" class="form-control input-md" type="text">
+	    						</div>
+	    					</div>
+
+	    					<div class="form-group">
+	    						<label class="col-md-4 control-label" for="x6">Cool Label X6</label>  
+	    						<div class="col-md-8">
+	    							<input id="x6" name="x6" class="form-control input-md" type="text">
+	    						</div>
+	    					</div>
+	    				</div>
+
+	    				<div class="col-md-6">
+	    					<div class="form-group">
+	    						<label class="col-md-4 control-label" for="x7">Cool Label X7</label>  
+	    						<div class="col-md-8">
+	    							<input id="x7" name="x7" class="form-control input-md" type="text">
+	    						</div>
+	    					</div>
+
+	    					<div class="form-group">
+	    						<label class="col-md-4 control-label" for="x8">Cool Label X8</label>  
+	    						<div class="col-md-8">
+	    							<input id="x8" name="x8" class="form-control input-md" type="text">
+	    						</div>
+	    					</div>
+
+	    					<div class="form-group">
+	    						<label class="col-md-4 control-label" for="x9">Cool Label X9</label>  
+	    						<div class="col-md-8">
+	    							<input id="x9" name="x9" class="form-control input-md" type="text">
+	    						</div>
+	    					</div>
+	    				</div>
+	    			</div>
+
+    			</fieldset>
+
+    		</div>	    	
+
+    		<div class="container">
+    		<div class="row" style="height:45px; border-top:1px #DDDDDD solid; padding:5px; background-color:#F9F9F9; text-align:right;">
+    			<button id="submit" name="submit" class="btn btn-success">Save</button>
+    			<a id="cancel" name="cancel" class="btn btn-primary">Cancel</a>
+    		</div>
+    	</div>
+
+		</fieldset>
+
+	</form>
+
+	<h3><i class="icon-th-list"></i> List Data Buku</h3>
+	<table class="table table-bordered table-striped table-hover">
+		<tr>
+			<th>Book Title</th>
+			<th>ISBN</th>
+			<th>Author</th>
+			<th>Publisher</th>
+		</tr>
+
+		<tbody>
+			{% for book in books %}
+			<tr>
+				<td>{{book.title}}</td>
+				<td>{{book.isbn}}</td>
+				<td>{{book.author.firstName}}</td>
+				<td>{{book.publisher.name}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
 
 {% endblock %}
