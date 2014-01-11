@@ -2,6 +2,7 @@ composer.phar
 composer.lock
 build.properties
 runtime-conf.xml
+src/config.php
 vendor/*
 propelconf/*
 propelsql/*
