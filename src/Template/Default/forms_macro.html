@@ -1,0 +1,53 @@
+{% macro input(name,label,form_data,validations) %}
+	
+	{% if validations[name] is not null %}
+	<div class="form-group has-error">
+	{% else %}
+	<div class="form-group">
+	{% endif %}
+
+		<label class="col-md-4 control-label" for="{{name}}">{{label}}</label>  
+		<div class="col-md-8">
+			<input id="{{name}}" name="{{name}}" class="form-control input-md" type="text" value="{{form_data[name]}}" />
+
+			{% if validations is not null %}
+			    {% for msg in validations[name] %}
+			        <span class="help-block error_line_msg">{{msg}}</span>
+			    {% endfor %}
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro dropdown(name, label, field_name, field_id, list, form_data, validations) %}
+    {% if validations[name] is not null %}
+	<div class="form-group has-error">
+	{% else %}
+	<div class="form-group">
+	{% endif %}
+
+    	<label class="col-md-4 control-label" for="{{name}}">{{label}}</label>
+    	<div class="col-md-8">
+    		<select id="{{name}}" name="{{name}}" class="form-control">
+    			<option value="">--- Pilih Publisher ---</option>
+
+    			{% for item in list %}
+
+    			    {% if item.id == form_data[name] %}
+    			        <option value="{{attribute(item, field_id)}}" selected="selected">{{attribute(item, field_name)}}</option>
+    			    {% else %}
+    			        <option value="{{attribute(item, field_id)}}">{{attribute(item, field_name)}}</option>
+    			    {% endif %}
+
+    			{% endfor %}
+    		</select>
+
+    		{% if validations is not null %}
+			    {% for msg in validations[name] %}
+			        <span class="help-block error_line_msg">{{msg}}</span>
+			    {% endfor %}
+			{% endif %}
+			
+    	</div>
+    </div>
+{% endmacro %}
