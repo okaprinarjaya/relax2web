@@ -13,5 +13,9 @@ function getAppConfig() {
 			'base_url' => 'http://localhost:8000/'
 			),
 		'upload_dir' => '/path/to/upload/dir',
+		'load_modules' => array(
+			'example_module',
+			'example_module_dua'
+		)
 	);
 }
