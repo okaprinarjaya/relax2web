@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import "forms_macro.html" as forms %}
 
 {######################## START MODULE CONTENT ########################}
 {% block contentbody %}
@@ -6,58 +7,28 @@
     <form class="form-horizontal" action="/example_module" method="post">
     	<fieldset>
     		<!-- Form Name -->
-    		<legend style="background-color:#F9F9F9; padding:5px; text-align:center;">Input Data Buku</legend>
+    		<legend class="main_legend">Input Data Buku</legend>
 
     		<div class="container">
     			<fieldset>
-    				<legend style="border-bottom:2px #DDDDDD solid;"><span style="background-color:#B3D7EE; padding:5px; color:#FFFFFF;">Bagian Input 1</span></legend>
+    				<legend class="sub_legend"><span>Bagian Input 1</span></legend>
 
-    				<div class="row" style="background-color:#FFFFFF;">
+    				<div class="row">
 
     					<!-- KOLOM KIRI -->
     					<div class="col-md-6">
 
 		    				<!-- Text input-->
-		    				<div class="form-group">
-		    					<label class="col-md-4 control-label" for="book_title">Book Title</label>  
-		    					<div class="col-md-8">
-		    						<input id="book_title" name="book_title" class="form-control input-md" type="text">
-		    					</div>
-		    				</div>
+		    				{{forms.input('book_title', 'Book Title', __form_data, validations)}}
 
 		    				<!-- Text input-->
-		    				<div class="form-group">
-		    					<label class="col-md-4 control-label" for="isbn">ISBN</label>
-		    					<div class="col-md-8">
-		    						<input id="isbn" name="isbn" class="form-control input-md" type="text">
-		    					</div>
-		    				</div>
+		    				{{forms.input('isbn', 'ISBN', __form_data, validations)}}
 
 		    				<!-- Select Basic -->
-		    				<div class="form-group">
-		    					<label class="col-md-4 control-label" for="publisher">Publisher</label>
-		    					<div class="col-md-8">
-		    						<select id="publisher" name="publisher" class="form-control">
-		    							<option value="null">--- Pilih Publisher ---</option>
-		    							{% for pub in pubs %}
-		    							    <option value="{{pub.id}}">{{pub.name}}</option>
-		    							{% endfor %}
-		    						</select>
-		    					</div>
-		    				</div>
+		    				{{forms.dropdown('publisher', 'Publisher', 'name', 'id', pubs, __form_data, validations)}}
 
 		    				<!-- Select Basic -->
-		    				<div class="form-group">
-		    					<label class="col-md-4 control-label" for="author">Author</label>
-		    					<div class="col-md-8">
-		    						<select id="author" name="author" class="form-control">
-		    							<option value="null">--- Pilih Author ---</option>
-		    							{% for author in authors %}
-		    							    <option value="{{author.id}}">{{author.firstName}}</option>
-		    							{% endfor %}
-		    						</select>
-		    					</div>
-		    				</div>
+		    				{{forms.dropdown('author', 'Author', 'firstName', 'id', authors, __form_data, validations)}}
 
 		    			</div>
 		    			<!-- END KOLOM KIRI -->
@@ -94,9 +65,9 @@
 
     		<div class="container">
     			<fieldset>
-    				<legend style="border-bottom:2px #DDDDDD solid;"><span style="background-color:#B3D7EE; padding:5px; color:#FFFFFF;">Bagian Input 2</span></legend>
+    				<legend class="sub_legend"><span>Bagian Input 2</span></legend>
 
-    				<div class="row" style="background-color:#FFFFFF;">
+    				<div class="row">
     					<div class="col-md-6">
     						<div class="form-group">
     							<label class="col-md-4 control-label" for="x4">Cool Label X4</label>  
@@ -149,11 +120,11 @@
     		</div>	    	
 
     		<div class="container">
-    		<div class="row" style="height:45px; border-top:1px #DDDDDD solid; padding:5px; background-color:#F9F9F9; text-align:right;">
-    			<button id="submit" name="submit" class="btn btn-success">Save</button>
-    			<a id="cancel" name="cancel" class="btn btn-primary">Cancel</a>
+    			<div class="row submit_container">
+    				<button id="submit" name="submit" class="btn btn-success">Save</button>
+    				<a id="cancel" name="cancel" class="btn btn-primary">Cancel</a>
+    			</div>
     		</div>
-    	</div>
 
 		</fieldset>
 

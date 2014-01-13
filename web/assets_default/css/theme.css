@@ -48,3 +48,22 @@ body {
   border-top-right-radius: 0;
 }
 
+.error_line_msg {
+  margin-bottom:0; color:#B94A48; font-size:0.8em;
+}
+
+.main_legend {
+  background-color:#F9F9F9; padding:5px; text-align:center;
+}
+
+.sub_legend {
+  border-bottom:2px #DDDDDD solid;
+}
+
+.sub_legend span {
+  background-color:#B3D7EE; padding:5px; color:#FFFFFF;
+}
+
+.submit_container {
+  height:45px; border-top:1px #DDDDDD solid; padding:5px; background-color:#F9F9F9; text-align:right;
+}
