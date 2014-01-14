@@ -19,6 +19,27 @@
 	</div>
 {% endmacro %}
 
+{% macro inputShort(name,label,form_data,validations) %}
+    
+    {% if validations[name] is not null %}
+    <div class="form-group has-error">
+    {% else %}
+    <div class="form-group">
+    {% endif %}
+
+        <label class="col-md-4 control-label" for="{{name}}">{{label}}</label>  
+        <div class="col-md-3">
+            <input id="{{name}}" name="{{name}}" class="form-control input-md" type="text" value="{{form_data[name]}}" />
+
+            {% if validations is not null %}
+                {% for msg in validations[name] %}
+                    <span class="help-block error_line_msg" style="width:320px;">{{msg}}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro dropdown(name, label, field_name, field_id, list, form_data, validations) %}
     {% if validations[name] is not null %}
 	<div class="form-group has-error">
@@ -29,7 +50,7 @@
     	<label class="col-md-4 control-label" for="{{name}}">{{label}}</label>
     	<div class="col-md-8">
     		<select id="{{name}}" name="{{name}}" class="form-control">
-    			<option value="">--- Pilih Publisher ---</option>
+    			<option value="">--- Pilih {{label}} ---</option>
 
     			{% for item in list %}
 
@@ -49,5 +70,14 @@
 			{% endif %}
 			
     	</div>
+    </div>
+{% endmacro %}
+
+{% macro textarea(name,label,form_data,validations) %}
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="{{name}}">{{label}}</label>  
+        <div class="col-md-8">
+            <textarea id="{{name}}" name="{{name}}" class="form-control input-md">{{form_data[name]}}</textarea>
+        </div>
     </div>
 {% endmacro %}
