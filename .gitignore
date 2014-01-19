@@ -6,3 +6,5 @@ propelconf/*
 propelsql/*
 src/Orm/*
 /nbproject
+build.properties
+runtime-conf.xml
