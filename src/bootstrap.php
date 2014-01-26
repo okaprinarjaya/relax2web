@@ -28,6 +28,8 @@ $app->view()->parserExtensions = array(
 $app->view()->setTemplatesDirectory($app->app_conf['templates_dir'].$app->app_conf['template'].'/');
 $app->view()->setData('__form_data',array());
 $app->view()->setData('__validations',null);
+
+
 /**
  * 
  * Start to load all routes
